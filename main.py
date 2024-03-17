@@ -2,7 +2,7 @@ import flet as ft
 
 
 def main(page: ft.Page):
-    page.title = "Registration"
+    page.title = "My App"
     page.theme_mode = 'dark'  # Initial theme mode
     page.window_width = 720
     page.window_height = 510
@@ -24,17 +24,18 @@ def main(page: ft.Page):
         text.value = text_value
         page.update()
 
+    def navigate(e):
+        pass
+
     text = ft.Text(value=text_map[page.theme_mode])
 
     page.navigation_bar = ft.NavigationBar(
         destinations=[
-            ft.NavigationDestination(icon=ft.icons.EXPLORE, label="Explore"),
-            ft.NavigationDestination(icon=ft.icons.COMMUTE, label="Commute"),
-            ft.NavigationDestination(
-                icon=ft.icons.SETTINGS,
-                label="Explore",
-            ),
-        ]
+            ft.NavigationDestination(icon=ft.icons.EXPLORE, label="Settings"),
+            ft.NavigationDestination(icon=ft.icons.CLEAR, label="ChatGPT"),
+            ft.NavigationDestination(icon=ft.icons.SETTINGS, label="Settings"),
+        ],
+        on_change=navigate
     )
 
     page.add(
